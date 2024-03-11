@@ -16,10 +16,7 @@ class Upload(db.Model):
 
 @app.route('/api/question', methods=['POST'])
 def upload_file():
-    if 'file' not in request.files:
-        return jsonify({'error': 'No file part'}), 400
-    
-    file = request.files['file']
+    file = request.form.get('file')
     question = request.form.get('question')  # Récupération de la question depuis le formulaire
 
     if file.filename == '':
