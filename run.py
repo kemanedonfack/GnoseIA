@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 import os
+from gnoseia import process_questions_and_files
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///uploads.db'
@@ -23,19 +24,11 @@ def upload_file():
         return jsonify({'error': 'No selected file'}), 400
 
     if file:
-        filename = file.filename
-        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
-        upload = Upload(filename=filename, question=question)  # Création de l'instance Upload
-
         #Eto enao no mampiditra ireo fonctionao izao mampanao test ny IA rehetra
         #eto no manoratra ny traitement rehetra
 
+        response = process_questions_and_files(question, file)
 
-        db.session.add(upload)  # Ajout de l'instance à la session
-        db.session.commit()  # Commit des changements
-
-        #atao anaty io jsonify io ny resultat rehetra izay hitanao
-        response = 'Ireo reponse ny teste rehetra atao ato'
         return jsonify({'message': 'File uploaded successfully', 'reponse': response}), 200
 
 if __name__ == '__main__':
