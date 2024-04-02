@@ -217,17 +217,14 @@ def process_questions_and_files(question, file_path):
     # Split documents into chunks
     chunks = split_document(documents)
 
-    # Initialize an empty list to store AI responses and references
-    responses_and_references = []
-
     # Process each question
-        # Get AI response for the question
+    # Get AI response for the question
     response, chat_history = create_conversation(question, chat_history)
     # Get relevant documents for the question
     results = retriever.get_relevant_documents(question)
     # Extract references for the relevant documents
     references = reference_for_retriever(results)
     # Store the response and references for the question
-    responses_and_references.append({"question": question, "response": response, "references": references})
+    responses_and_references = {"question": question, "response": response, "references": references}
 
     return responses_and_references
