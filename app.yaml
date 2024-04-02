@@ -2,7 +2,7 @@ runtime: python311
 api_version: 1
 threadsafe: true
 
-handler:
+handlers:
 - url: /.*
   script: pip install requirement.txt && run.py
 
