@@ -5,14 +5,6 @@ Created on Fri Mar 29 14:53:41 2024
 @author: Sitrakiniaina
 """
 
-!pip install langchain
-!pip install pypdf
-!pip install sentence-transformers
-!pip install elasticsearch
-!pip install langchain_elasticsearch
-!pip install rapidocr-onnxruntime
-!pip install googletrans==4.0.0-rc1
-
 #Import dependencies
 from googletrans import Translator
 import warnings
