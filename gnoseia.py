@@ -189,16 +189,20 @@ def create_conversation(query: str, chat_history: list): # -> tuple:
         return e, chat_history
     
 def reference_for_retriever(results):     #fonction pour obtenir les références
-  print(" Les references:")
-  nombre_reference = 1
-  for result in results:
-    print(nombre_reference,")","'", result.page_content,"'")
-    split = result.metadata["source"]
-    splitted = split.split("/")
-    source = splitted[-1]
-    print("Source: ","'",source,"'", "dans la page", result.metadata["page"]+1)
-    nombre_reference += 1
-    
+    print(" Les references:")
+    references = []
+    nombre_reference = 1
+    for result in results:
+        print(nombre_reference,")","'", result.page_content,"'")
+        split = result.metadata["source"]
+        splitted = split.split("/")
+        source = splitted[-1]
+        print("Source: ","'",source,"'", "dans la page", result.metadata["page"]+1)
+        nombre_reference += 1
+
+        references.append({'content': result.page_content, 'source': source, 'page': result.metadata['page']+1})
+        
+    return references
     
 vector_database.client.indices.refresh(index=index_pattern)
 
