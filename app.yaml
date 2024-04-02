@@ -1,11 +1,7 @@
 runtime: python311
 api_version: 1
-threadsafe: true
+threadsafe: false
 
 handler:
 - url: /.*
   script: pip install requirement.txt && run.py
-
-libraries:
-- name: flask
-  version: 3.0.2
