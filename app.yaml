@@ -1,11 +1,8 @@
-runtime: python311
+runtime: python39
+env: flex
 api_version: 1
-threadsafe: true
+threadsafe: false
 
 handlers:
 - url: /.*
-  script: pip install requirement.txt && run.py
-
-libraries:
-- name: flask
-  version: 3.0.2
+  script: run.py
