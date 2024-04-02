@@ -190,11 +190,11 @@ def create_conversation(query: str, chat_history: list): # -> tuple:
         translator = Translator()
         generated_text = translator.translate(generated_text, src='en', dest='fr').text
         chat_history.append((query, generated_text))
-        return generated_text
+        return generated_text, chat_history
 
     except Exception as e:
         chat_history.append((query, e))
-        return e
+        return e, chat_history
     
 def reference_for_retriever(results):     #fonction pour obtenir les références
   print(" Les references:")
@@ -209,13 +209,10 @@ def reference_for_retriever(results):     #fonction pour obtenir les référence
     
     
 vector_database.client.indices.refresh(index=index_pattern)
- # question: question à poser venant de l'utilisateur et récupérer à partir de front du site GnoseIA
-reponseIA = create_conversation(question, [])
 
-results = retriever.get_relevant_documents(question)   # ou results = retriever.invoke(query)
-reference = reference_for_retriever(results)
+chat_history = []
 
-def process_questions_and_files(questions, file_path):
+def process_questions_and_files(question, file_path):
     """
     Process user questions and files.
 
@@ -232,14 +229,13 @@ def process_questions_and_files(questions, file_path):
     responses_and_references = []
 
     # Process each question
-    for question in questions:
         # Get AI response for the question
-        response = create_conversation(question, [])
-        # Get relevant documents for the question
-        results = retriever.get_relevant_documents(question)
-        # Extract references for the relevant documents
-        references = reference_for_retriever(results)
-        # Store the response and references for the question
-        responses_and_references.append({"question": question, "response": response, "references": references})
+    response, chat_history = create_conversation(question, chat_history)
+    # Get relevant documents for the question
+    results = retriever.get_relevant_documents(question)
+    # Extract references for the relevant documents
+    references = reference_for_retriever(results)
+    # Store the response and references for the question
+    responses_and_references.append({"question": question, "response": response, "references": references})
 
     return responses_and_references
