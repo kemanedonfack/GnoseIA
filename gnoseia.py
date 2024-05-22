@@ -233,6 +233,6 @@ def process_questions_and_files(question, file_path):
     references = reference_for_retriever(results)
 
     # Store the response and references for the question
-    responses_and_references = {"question": question, "response": response, "references": references}
+    responses_and_references = {"question": question, "reponse": response, "references": references}
 
     return responses_and_references
