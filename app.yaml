@@ -1,7 +1,8 @@
-runtime: python311
+runtime: python39
+env: flex
 api_version: 1
 threadsafe: false
 
-handler:
+handlers:
 - url: /.*
-  script: pip install requirement.txt && run.py
+  script: run.py
