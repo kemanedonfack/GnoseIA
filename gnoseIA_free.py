@@ -5,7 +5,6 @@ Created on Mon Jun 24 17:03:38 2024
 @author: Sitrakiniaina
 """
 
-# #voici le code
 # !pip install  langchain
 # !pip install  langchain_community
 # !pip install  pypdf -U
@@ -48,8 +47,7 @@ from langchain_cohere import CohereRerank
 import locale
 locale.getpreferredencoding = lambda: "UTF-8"
 from datetime import datetime
-from google.colab import drive
-drive.mount('/content/drive')
+
 
 
 def load_document(data_path):
@@ -63,10 +61,10 @@ def split_document(documents):
   return chunks
 
 
-docs = load_document("/content/drive/My Drive/Corpus Legislative/Front_populaire/")
-docs_2 = load_document("/content/drive/My Drive/Corpus Legislative/UDD/")
-docs_3 = load_document("/content/drive/My Drive/Corpus Legislative/Renaissance/")
-docs_gnose = load_document("/content/drive/My Drive/gnoseia/")
+docs = load_document("s3://gnoseia-corpus-storage/Corpus Legislative/Front_populaire/")
+docs_2 = load_document("s3://gnoseia-corpus-storage/Corpus Legislative/UDD/")
+docs_3 = load_document("s3://gnoseia-corpus-storage/Corpus Legislative/Renaissance/")
+docs_gnose = load_document("s3://gnoseia-corpus-storage/Corpus gnoseia/")
 
 
 docs = split_document(docs)
