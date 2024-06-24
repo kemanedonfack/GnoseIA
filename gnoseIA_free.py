@@ -2,20 +2,20 @@
 """
 Created on Mon Jun 24 17:03:38 2024
 
-@author: Sitrakiniaina
+@author: Boniface
 """
 
-# !pip install  langchain
-# !pip install  langchain_community
-# !pip install  pypdf -U
-# !pip install  transformers==4.38.2
-# !pip install  tokenizers==0.15.2
-# !pip install  chromadb
-# !pip install  langchain_chroma
-# !pip install  rapidocr-onnxruntime
-# !pip install  langchain_cohere
-# !pip install  cohere
-# !pip install  sentence-transformers
+!pip install  langchain
+!pip install  langchain_community
+!pip install  pypdf -U
+!pip install  transformers==4.38.2
+!pip install  tokenizers==0.15.2
+!pip install  chromadb
+!pip install  langchain_chroma
+!pip install  rapidocr-onnxruntime
+!pip install  langchain_cohere
+!pip install  cohere
+!pip install  sentence-transformers
 
 
 #Import dependencies
