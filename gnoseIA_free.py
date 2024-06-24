@@ -99,12 +99,10 @@ def init_chroma(data:list, entier:int):
     print(f"An error occured: {e}")
     return None, None
 
-id_database = 0
-
-vector_database, collection = init_chroma(docs, id_database)
-vector_database_2, collection_2 = init_chroma(docs_2, id_database + 1)
-vector_database_3, collection_3 = init_chroma(docs_3, id_database + 2)
-vector_database_gnose, collection_gnose = init_chroma(docs_gnose, id_database + 3)
+vector_database, collection = init_chroma(docs, 0)
+vector_database_2, collection_2 = init_chroma(docs_2, 1)
+vector_database_3, collection_3 = init_chroma(docs_3, 2)
+vector_database_gnose, collection_gnose = init_chroma(docs_gnose, 3)
 
 def retrieval(database):
   retriever = database.as_retriever(
@@ -467,7 +465,7 @@ def reponse_gnoseia(question, file_path):
     # Split documents into chunks
     chunks = split_document(documents)
 
-    vector_database_entree, collection_entree = init_chroma(chunks, id_database + 1)
+    vector_database_entree, collection_entree = init_chroma(chunks, 4)
     retriever_entree = retrieval(vector_database_entree)
 
     compression_retriever_entree = reranking(retriever_entree)
