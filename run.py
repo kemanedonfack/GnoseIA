@@ -1,5 +1,4 @@
 from flask import Flask, request, jsonify
-import os
 from gnoseIA_free import reponse_gnoseia, reponse_gnoseia_darby, reponse_legislative
 
 app = Flask(__name__)
