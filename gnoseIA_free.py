@@ -43,9 +43,6 @@ from langchain_community.llms import Cohere
 from langchain.llms.base import LLM
 from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
 from langchain_cohere import CohereRerank
-# fixing unicode error in google colab
-import locale
-locale.getpreferredencoding = lambda: "UTF-8"
 from datetime import datetime
 
 
