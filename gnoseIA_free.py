@@ -420,11 +420,11 @@ def reponse_gnoseia(question, file_path):
     reponse_gnose, chat_history_gnose = Response_IA(question, chat_history_gnose, llm_for_gnose, compression_retriever_entree)
     print(reponse_gnose) #réponse de gnoseIA sur les documents ajoutés par l'utilisateur
 
-    reference_gnose = compression_retriever_gnose.invoke(question_gnose)
+    reference_gnose = compression_retriever_entree.invoke(question_gnose)
     ref_gnose = reference_for_retriever(reference_gnose)
     print(ref_gnose)   #réference dans le document ajouté
 
-    overview = overview_chain(docs_gnose)
+    overview = overview_chain(chunks)
     print(overview)    #aperçu des documents ajoutés
     
     responses_and_references = {"question": question, "reponse": reponse_gnose, "references": ref_gnose}
