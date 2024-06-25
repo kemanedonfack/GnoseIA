@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from gnoseIA_free import reponse_gnoseia, reponse_gnoseia_darby, reponse_legislative
+from gnoseIA_free import reponse_gnoseia, reponse_corpus_gnoseia, reponse_legislative
 
 app = Flask(__name__)
 
@@ -22,8 +22,8 @@ def take_question_gnoseia():
 
     return jsonify({ 'reponse': response }), 200
 
-@app.route('/api/darby', methods=['POST'])
-def upload_file():
+@app.route('/api/corpus', methods=['POST'])
+def take_question_corpus():
     # file = request.form.get('file')
     data = request.json  # Récupérer le JSON envoyé dans la requête
     if not data or 'question' not in data:
@@ -33,11 +33,10 @@ def upload_file():
 
     response = reponse_corpus_gnoseia(question)
 
-    print(f"question: {question} \n reponse: {response} \n references: {references}")
     return jsonify({ 'reponse': response }), 200
 
 @app.route('/api/legislative', methods=['POST'])
-def upload_file():
+def take_question_legislative():
     # file = request.form.get('file')
     data = request.json  # Récupérer le JSON envoyé dans la requête
     if not data or 'question' not in data:
