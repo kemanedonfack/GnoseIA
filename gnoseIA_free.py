@@ -61,10 +61,10 @@ def split_document(documents):
   return chunks
 
 
-docs = load_document("s3://gnoseia-corpus-storage/Corpus Legislative/Front_populaire/")
-docs_2 = load_document("s3://gnoseia-corpus-storage/Corpus Legislative/UDD/")
-docs_3 = load_document("s3://gnoseia-corpus-storage/Corpus Legislative/Renaissance/")
-docs_gnose = load_document("s3://gnoseia-corpus-storage/Corpus gnoseia/")
+docs = load_document("https://gnoseia-corpus-storage.s3.eu-west-3.amazonaws.com/Corpus+Legislative/Front_populaire/")
+docs_2 = load_document("https://gnoseia-corpus-storage.s3.eu-west-3.amazonaws.com/Corpus+Legislative/UDD/")
+docs_3 = load_document("https://gnoseia-corpus-storage.s3.eu-west-3.amazonaws.com/Corpus+Legislative/Renaissance/")
+docs_gnose = load_document("https://gnoseia-corpus-storage.s3.eu-west-3.amazonaws.com/Corpus+gnoseia/")
 
 
 docs = split_document(docs)
