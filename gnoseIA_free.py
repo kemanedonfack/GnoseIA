@@ -441,7 +441,7 @@ def reponse_legislative(question):
 
     return responses_and_references
 
-def reponse_gnoseia_darby(question):    
+def reponse_corpus_gnoseia(question):    
     reponse_gnose, chat_history_gnose = Response_IA(question, chat_history_gnose, llm_for_gnose, compression_retriever_gnose)
     print(reponse_gnose) #réponse de gnoseIA sur les documents ajoutés par l'utilisateur
 

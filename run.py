@@ -1,5 +1,5 @@
 from flask import Flask, request, jsonify
-from gnoseIA_free import reponse_gnoseia, reponse_gnoseia_darby, reponse_legislative
+from gnoseIA_free import reponse_gnoseia, reponse_corpus_gnoseia, reponse_legislative
 
 app = Flask(__name__)
 
@@ -22,7 +22,7 @@ def take_question_gnoseia():
 
     return jsonify({ 'reponse': response }), 200
 
-@app.route('/api/darby', methods=['POST'])
+@app.route('/api/corpus', methods=['POST'])
 def upload_file():
     # file = request.form.get('file')
     data = request.json  # Récupérer le JSON envoyé dans la requête
@@ -31,9 +31,8 @@ def upload_file():
     
     question = data['question']  # Récupérer la question depuis le JSON
 
-    response = reponse_gnoseia_darby(question)
+    response = reponse_corpus_gnoseia(question)
 
-    print(f"question: {question} \n reponse: {response} \n references: {references}")
     return jsonify({ 'reponse': response }), 200
 
 @app.route('/api/legislative', methods=['POST'])
