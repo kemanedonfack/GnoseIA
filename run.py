@@ -23,7 +23,7 @@ def take_question_gnoseia():
     return jsonify({ 'reponse': response }), 200
 
 @app.route('/api/corpus', methods=['POST'])
-def upload_file():
+def take_question_corpus():
     # file = request.form.get('file')
     data = request.json  # Récupérer le JSON envoyé dans la requête
     if not data or 'question' not in data:
@@ -36,7 +36,7 @@ def upload_file():
     return jsonify({ 'reponse': response }), 200
 
 @app.route('/api/legislative', methods=['POST'])
-def upload_file():
+def take_question_legislative():
     # file = request.form.get('file')
     data = request.json  # Récupérer le JSON envoyé dans la requête
     if not data or 'question' not in data:
