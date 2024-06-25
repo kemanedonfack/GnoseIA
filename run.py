@@ -31,7 +31,7 @@ def upload_file():
     
     question = data['question']  # Récupérer la question depuis le JSON
 
-    response = reponse_gnoseia_darby(question)
+    response = reponse_corpus_gnoseia(question)
 
     print(f"question: {question} \n reponse: {response} \n references: {references}")
     return jsonify({ 'reponse': response }), 200
