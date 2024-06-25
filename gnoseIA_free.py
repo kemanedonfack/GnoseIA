@@ -33,12 +33,12 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, TextIteratorStream
 from threading import Thread
 from typing import Optional
 from langchain_core.prompts import PromptTemplate, ChatPromptTemplate
-from langchain.vectorstores import Chroma
+from langchain_community.vectorstores import Chroma
 from langchain.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain, LLMChain
-from langchain.embeddings import HuggingFaceEmbeddings
+from langchain_community.embeddings import HuggingFaceEmbeddings
 from langchain_community.llms import Cohere
 from langchain.llms.base import LLM
 from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
