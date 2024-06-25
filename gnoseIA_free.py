@@ -16,6 +16,7 @@ Created on Mon Jun 24 17:03:38 2024
 # !pip install  langchain_cohere
 # !pip install  cohere
 # !pip install  sentence-transformers
+# !pip install  langchain-huggingface
 
 
 #Import dependencies
@@ -38,7 +39,7 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain.memory import ConversationBufferMemory
 from langchain.chains import ConversationalRetrievalChain, LLMChain
-from langchain_community.embeddings import HuggingFaceEmbeddings
+from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.llms import Cohere
 from langchain.llms.base import LLM
 from langchain.retrievers.contextual_compression import ContextualCompressionRetriever
