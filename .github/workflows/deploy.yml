@@ -44,7 +44,7 @@ jobs:
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} "sudo mkdir -p /home/ubuntu/gnoseia && sudo chown -R ${USER_NAME}:${USER_NAME} /home/ubuntu/gnoseia"
           scp -o StrictHostKeyChecking=no -i private_key docker-compose.yml ${USER_NAME}@${HOSTNAME}:/home/ubuntu/gnoseia/docker-compose.yml
           ssh -o StrictHostKeyChecking=no -i private_key ${USER_NAME}@${HOSTNAME} '
-              cd /home/ubuntu/llm &&
+              cd /home/ubuntu/gnoseia &&
               sudo docker compose down &&
               sudo docker compose pull &&
               sudo docker compose up -d
