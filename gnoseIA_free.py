@@ -342,17 +342,17 @@ chat_history_Gnose = []
 
 
 
-question_gnose = "Quels sont les pays visités par Darby lors de son voyage?"
+# question_gnose = "Quels sont les pays visités par Darby lors de son voyage?"
 
-reponse_gnose, chat_history_gnose = Response_IA(question_gnose, chat_history_gnose, llm_for_gnose, compression_retriever_gnose)
-print(reponse_gnose) #réponse de gnoseIA sur les documents ajoutés par l'utilisateur
+# reponse_gnose, chat_history_gnose = Response_IA(question_gnose, chat_history_gnose, llm_for_gnose, compression_retriever_gnose)
+# print(reponse_gnose) #réponse de gnoseIA sur les documents ajoutés par l'utilisateur
 
-reference_gnose = compression_retriever_gnose.invoke(question_gnose)
-ref_gnose = reference_for_retriever(reference_gnose)
-print(ref_gnose)   #réference dans le document ajouté
+# reference_gnose = compression_retriever_gnose.invoke(question_gnose)
+# ref_gnose = reference_for_retriever(reference_gnose)
+# print(ref_gnose)   #réference dans le document ajouté
 
-overview = overview_chain(docs_gnose)
-print(overview)    #aperçu des documents ajoutés
+o# verview = overview_chain(docs_gnose)
+# print(overview)    #aperçu des documents ajoutés
 
 
 
@@ -404,7 +404,7 @@ def reponse_legislative(question):
 
     reference_Front = compression_retriever.invoke(question)
     ref_Front = reference_for_retriever(reference_Front)
-    print(ref_Front)    #réfeence dans le programme de Front populaire
+    print(ref_Front)    #réference dans le programme de Front populaire
 
     reponse_UDD, chat_history_UDD = Response_IA(question, chat_history_UDD, llm_for_response, compression_retriever_2)
     print(reponse_UDD)  #réponse de UDD
@@ -415,18 +415,18 @@ def reponse_legislative(question):
 
         
     reponse_RE, chat_history_RE = Response_IA(question, chat_history_RE, llm_for_response, compression_retriever_3)
-    print(reponse_RE)   #réponse de Renaissance
+    print(reponse_RE)    #réponse de Renaissance
 
     reference_RE = compression_retriever_3.invoke(question)
     ref_RE = reference_for_retriever(reference_RE)
-    print(ref_RE)      #réference dans le programme de Renaissance
+    print(ref_RE)        #réference dans le programme de Renaissance
 
     answer_gnose, chat_history_Gnose = Response_IA(question, chat_history_Gnose, llm_for_gnose, compression_retriever_gnose)
     print(answer_gnose)    #réponse de gnoseIA
 
     Reference_gnose = compression_retriever_gnose.invoke(question)
     Ref_gnose = reference_for_retriever(Reference_gnose)
-    print(Ref_gnose)   
+    print(Ref_gnose)       #réference dans le corpus gnoseia
 
     # Store the response and references for the question
     responses_and_references = {
