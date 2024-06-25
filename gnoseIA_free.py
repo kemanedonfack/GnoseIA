@@ -390,16 +390,14 @@ def reponse_legislative(question):
 
     return responses_and_references
 
-def reponse_gnoseia_darby(question):    
+def reponse_corpus_gnoseia(question):    
     reponse_gnose, chat_history_gnose = Response_IA(question, chat_history_gnose, llm_for_gnose, compression_retriever_gnose)
-    print(reponse_gnose) #réponse de gnoseIA sur les documents ajoutés par l'utilisateur
+    print(reponse_gnose) #réponse de gnoseIA 
 
-    reference_gnose = compression_retriever_gnose.invoke(question_gnose)
+    reference_gnose = compression_retriever_gnose.invoke(question)
     ref_gnose = reference_for_retriever(reference_gnose)
-    print(ref_gnose)   #réference dans le document ajouté
+    print(ref_gnose)   #réference dans le corpus de gnoseia
 
-    overview = overview_chain(docs_gnose)
-    print(overview)    #aperçu des documents ajoutés
     # Store the response and references for the question
     responses_and_references = {"question": question, "reponse": reponse_gnose, "references": ref_gnose}
 
@@ -420,13 +418,13 @@ def reponse_gnoseia(question, file_path):
     reponse_gnose, chat_history_gnose = Response_IA(question, chat_history_gnose, llm_for_gnose, compression_retriever_entree)
     print(reponse_gnose) #réponse de gnoseIA sur les documents ajoutés par l'utilisateur
 
-    reference_gnose = compression_retriever_entree.invoke(question_gnose)
+    reference_gnose = compression_retriever_entree.invoke(question)
     ref_gnose = reference_for_retriever(reference_gnose)
-    print(ref_gnose)   #réference dans le document ajouté
+    print(ref_gnose)   #réference dans les documents ajoutés
 
     overview = overview_chain(chunks)
     print(overview)    #aperçu des documents ajoutés
     
-    responses_and_references = {"question": question, "reponse": reponse_gnose, "references": ref_gnose}
+    responses_overview_and_references = {"question": question, "reponse": reponse_gnose, "overview": overview, "references": ref_gnose}
 
-    return responses_and_references
+    return responses_overview_and_references
